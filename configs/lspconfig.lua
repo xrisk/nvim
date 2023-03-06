@@ -45,5 +45,7 @@ require("mason-lspconfig").setup_handlers({
         }
       }
     })
-  end
+  end,
+  -- Example: disable auto configuring an LSP
+  ["clangd"] = function() end,
 })
