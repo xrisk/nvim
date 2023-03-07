@@ -17,7 +17,11 @@ require("mason-lspconfig").setup_handlers({
   -- Default setup for all servers, unless a custom one is defined below
   function(server_name)
     lspconfig[server_name].setup({
-      on_attach = on_attach,
+      on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+        -- Add your other things here
+        -- Example being format on save or something
+      end,
       capabilities = capabilities,
     })
   end,
