@@ -21,8 +21,13 @@ local plugins = {
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
+  
+  -- override plugin configs
+  {
+    "williamboman/mason.nvim",
+    opts = overrides.mason
+  },
 
-  -- overrde plugin configs
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
