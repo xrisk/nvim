@@ -21,7 +21,7 @@ local plugins = {
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
-  
+
   -- override plugin configs
   {
     "williamboman/mason.nvim",
@@ -53,11 +53,6 @@ local plugins = {
   --   enabled = false
   -- },
 
-  -- Uncomment if you want to re-enable which-key
-  -- {
-  --   "folke/which-key.nvim",
-  --   enabled = true,
-  -- },
 }
 
 return plugins
