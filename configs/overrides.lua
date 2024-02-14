@@ -1,4 +1,5 @@
 local M = {}
+local cmp = require "cmp"
 
 M.treesitter = {
   ensure_installed = {
@@ -12,12 +13,11 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
+    "python",
   },
+  auto_install = true,
   indent = {
     enable = true,
-    -- disable = {
-    --   "python"
-    -- },
   },
 }
 
@@ -37,6 +37,15 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+    -- python
+    "pyright",
+    "isort",
+    "black",
+    "ruff",
+
+    -- markdown
+    "marksman",
   },
 }
 
@@ -51,6 +60,31 @@ M.nvimtree = {
     icons = {
       show = {
         git = true,
+      },
+    },
+  },
+}
+
+M.cmp = {
+  mapping = {
+    ["<Down>"] = cmp.mapping.select_next_item(),
+    ["<Up>"] = cmp.mapping.select_prev_item(),
+  },
+  sources = {
+    { name = "copilot" },
+    { name = "nvim_lsp" },
+    { name = "luasnip" },
+    { name = "buffer" },
+    { name = "nvim_lua" },
+    { name = "path" },
+  },
+}
+
+M.telescope = {
+  defaults = {
+    mappings = {
+      i = {
+        ["<ESC>"] = require("telescope.actions").close,
       },
     },
   },

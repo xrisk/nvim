@@ -5,3 +5,19 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
+--
+
+vim.g.mapleader = "\\"
+
+local new_cmd = vim.api.nvim_create_user_command
+
+new_cmd("Rg", function()
+  require("telescope.builtin").live_grep()
+end, {})
+
+local vim = vim
+local opt = vim.opt
+
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldenable = false
